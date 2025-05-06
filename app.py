@@ -12,7 +12,7 @@ from langchain_core.documents import Document
 import streamlit as st
 
 # Write FAQ from text files into CSV
-with open('./telecom_faq_General_Account_Management.csv', 'w', newline='', encoding='utf-8') as outfile:
+with open('./telecom_faq.csv', 'w', newline='', encoding='utf-8') as outfile:
     writer = csv.writer(outfile)
     writer.writerow(['Question', 'Answer'])  # CSV header
     for files_txt in os.listdir('txt_files'):
@@ -27,7 +27,7 @@ with open('./telecom_faq_General_Account_Management.csv', 'w', newline='', encod
                         print(f"Skipping malformed line: {line.strip()}")  # skipped line
 
 # --- Configuration ---
-FAQ_FILE = r"C:\Users\dhany\Desktop\telecom_project\telecom_faq_General_Account_Management.csv"
+FAQ_FILE = r"C:\Users\dhany\Desktop\telecom_project\telecom_faq.csv"
 LLM_MODEL = "llama3"  # Or the specific Llama model tag you pulled
 EMBEDDING_MODEL = "nomic-embed-text"  # Ollama embedding model tag
 VECTORSTORE_DIR = "faq_vectorstore"  # Directory to save vector store
